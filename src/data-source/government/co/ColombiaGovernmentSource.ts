@@ -26,7 +26,7 @@ interface ColombiaType {
 
 /**
  * ColombiaGovernmentDataSource Suite
- * @author Samuel Burbano <contact@covid19.fyi>
+ * @author Samuel Burbano <me@iosamuel.com>
  */
 export class ColombiaGovernmentSource extends DataSource {
   public constructor() {
@@ -34,13 +34,8 @@ export class ColombiaGovernmentSource extends DataSource {
   }
 
   protected async loadPageContent(): Promise<ColombiaType> {
-    try {
-      const response = await axios.get(COL_SOURCE_URL);
-      return response.data;
-    } catch (e) {
-      console.log("Error", e);
-    }
-    return { data: [] };
+    const response = await axios.get(COL_SOURCE_URL);
+    return response.data;
   }
 
   public async loadSourceData(): Promise<SourceData> {

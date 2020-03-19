@@ -2,12 +2,12 @@ import { DataSourceName, DataSourceRegistry } from "../../src";
 
 /**
  * ColombiaGovernmentDataSource Test Suite
- * @author GUH <contact@covid19.fyi>
+ * @author Samuel Burbano <me@iosamuel.com>
  */
 describe("ColombiaGovernmentSource", () => {
   test("Should fetch and parse", async () => {
     try {
-      const dataSource = DataSourceRegistry.getDataSource(DataSourceName.COL_GOV);
+      const dataSource = DataSourceRegistry.getDataSource(DataSourceName.COLOMBIA_GOV);
       await dataSource.loadSourceData();
     }
     catch (e) {

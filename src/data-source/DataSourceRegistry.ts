@@ -17,7 +17,7 @@ export class DataSourceRegistry {
   private static getDataSourceRegistry(): Map<DataSourceName, DataSource> {
     const mapping = new Map<DataSourceName, DataSource>();
     mapping.set(DataSourceName.NEW_YORK_GOV, NewYorkGovernmentSource.prototype);
-    mapping.set(DataSourceName.COL_GOV, ColombiaGovernmentSource.prototype);
+    mapping.set(DataSourceName.COLOMBIA_GOV, ColombiaGovernmentSource.prototype);
     mapping.set(DataSourceName.JOHNS_HOPKINS, HopkinsAggregatorSource.prototype);
     return mapping;
   }
