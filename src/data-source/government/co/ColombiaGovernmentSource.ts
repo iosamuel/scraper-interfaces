@@ -33,7 +33,7 @@ export class ColombiaGovernmentSource extends DataSource {
     super(SourceType.GOVERNMENT, COL_FEATURES);
   }
 
-  public async getPageContent(): Promise<ColombiaType> {
+  protected async loadPageContent(): Promise<ColombiaType> {
     try {
       const response = await axios.get(COL_SOURCE_URL);
       return response.data;
@@ -43,8 +43,9 @@ export class ColombiaGovernmentSource extends DataSource {
     return { data: [] };
   }
 
-  public async parsePageContent(pageContentHtml: ColombiaType): Promise<SourceData> {
-    const cases = pageContentHtml.data[0];    
+  public async loadSourceData(): Promise<SourceData> {
+    const content = await this.loadPageContent();
+    const cases = content.data[0];
     const casesHeader = cases.shift();
     const cityLocation = casesHeader?.indexOf("Ciudad de ubicación") || 2;
 

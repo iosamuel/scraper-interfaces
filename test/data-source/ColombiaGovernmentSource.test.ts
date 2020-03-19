@@ -8,8 +8,7 @@ describe("ColombiaGovernmentSource", () => {
   test("Should fetch and parse", async () => {
     try {
       const dataSource = DataSourceRegistry.getDataSource(DataSourceName.COL_GOV);
-      const json = await dataSource.getPageContent();
-      await dataSource.parsePageContent(json);
+      await dataSource.loadSourceData();
     }
     catch (e) {
       console.error(e);
